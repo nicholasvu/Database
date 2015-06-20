@@ -44,3 +44,12 @@ print(df['Tobacco'].std())
 print(df['Tobacco'].var())
 print(df['Alcohol'].mode())
 print(df['Tobacco'].mode())
+print(max(df['Alcohol']) - min(df['Alcohol']))
+print(df['Alcohol'].std())
+print(df['Alcohol'].var())
+
+print(max(df['Tobacco']) - min(df['Tobacco']))
+print(df['Tobacco'].std())
+print(df['Tobacco'].var())
+
+print('The range for the Alcohol and Tobacco dataset are 2.45 and 1.85')
