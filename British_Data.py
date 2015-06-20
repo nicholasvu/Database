@@ -3,6 +3,8 @@ import pandas as pd
 from StringIO import StringIO
 from scipy import stats
 
+print "Hello World"
+
 datastring = '''Region, Alcohol, Tobacco
 North, 6.47, 4.03
 Yorkshire, 6.13, 3.76
