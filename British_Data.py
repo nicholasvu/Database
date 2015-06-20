@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 from StringIO import StringIO
+from scipy import stats
 
 datastring = '''Region, Alcohol, Tobacco
 North, 6.47, 4.03
@@ -27,29 +28,30 @@ df['Alcohol'] = df['Alcohol'].astype(float)
 df['Tobacco'] = df['Tobacco'].astype(float)
 
 
-df['Alcohol'].mean()
-df['Alcohol'].median()
-df['Alcohol'].mode()
-df['Tobacco'].mean()
-df['Tobacco'].median()
-df['Tobacco'].mode()
+alc_mean = df['Alcohol'].mean()
+alc_med = df['Alcohol'].median()
+tob_mean = df['Tobacco'].mean()
+tob_med = df['Tobacco'].median()
+stats.mode(df['Tobacco'])
+stats.mode(df['Alcohol'])
 
-
-print(df['Alcohol'].mean())
-print(max(df['Alcohol']) - min(df['Alcohol']))
-df['Alcohol'].std()
-df['Alcohol'].var()
+alc_std = df['Alcohol'].std()
+alc_var = df['Alcohol'].var()
 max(df['Tobacco']) - min(df['Tobacco'])
-print(df['Tobacco'].std())
-print(df['Tobacco'].var())
-print(df['Alcohol'].mode())
-print(df['Tobacco'].mode())
-print(max(df['Alcohol']) - min(df['Alcohol']))
-print(df['Alcohol'].std())
-print(df['Alcohol'].var())
+tob_std = df['Tobacco'].std()
+tob_var = df['Tobacco'].var()
 
-print(max(df['Tobacco']) - min(df['Tobacco']))
-print(df['Tobacco'].std())
-print(df['Tobacco'].var())
+alc_range = max(df['Alcohol']) - min(df['Alcohol'])
+tob_range = max(df['Tobacco']) - min(df['Tobacco'])
+tob_mode = stats.mode(df['Tobacco'])
+alc_mode = stats.mode(df['Alcohol'])
 
-print('The range for the Alcohol and Tobacco dataset are 2.45 and 1.85')
+
+msg = " {:.3f} for Alcohol and {:.3f} for Tobacco \n"
+
+print "The ranges for the Alcohol and Tobacco dataset are" + msg.format(alc_range, tob_range)
+print "The modes for the Alcohol and Tobacco dataset are " + msg.format(alc_mode[0][0], tob_mode[0][0])
+print "The means for the Alcohol and Tobacco dataset are " + msg.format(alc_mean, tob_mean)
+print "The medians for the Alcohol and Tobacco dataset are " + msg.format(alc_med, tob_med)
+print "The standard deviation for the Alcohol and Tobacco dataset are " + msg.format(alc_std, tob_std)
+print "The variance for the Alcohol and Tobacco dataset are " + msg.format(alc_var, tob_var)
