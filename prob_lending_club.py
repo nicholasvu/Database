@@ -17,3 +17,5 @@ plt.figure()
 graph = stats.probplot(loansData['Amount.Requested'], dist="norm", plot=plt)
 plt.title('QQ Plot Amount Requested')
 plt.show()
+
+#this is extremely similar to the amount requested by investors
